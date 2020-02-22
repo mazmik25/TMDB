@@ -27,8 +27,11 @@ class MovieCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setupView() {
-        
+    func setupView(movie: MoviesOutput) {
+        posterImageView.loadPoster(path: movie.posterPath)
+        titleLabel.text = movie.title
+        releaseDateLabel.text = movie.releaseDate
+        synopsyisLabel.text = movie.overview
     }
     
 }

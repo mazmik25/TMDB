@@ -11,10 +11,13 @@ import UIKit
 class MoviesVC: BaseVC {
 
     @IBOutlet weak var tableView: UITableView!
+    private var movies: [MoviesOutput] = []
+    private var presenter: MoviesPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        setupPresenter()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +33,11 @@ class MoviesVC: BaseVC {
         tableView.separatorStyle = .none
     }
     
+    private func setupPresenter() {
+        presenter = MoviesPresentation(view: self)
+        presenter.onGetMoview(withCategory: .nowPlaying, onPage: 1)
+    }
+    
     @IBAction func onCategoryTapped(_ sender: UIButton) {
         let alert = setupAlertController(title: "Select Category", message: nil, style: .actionSheet)
         alert.addAction(setupAlertAction(title: "Popular", style: .default, completion: onPopularSelected))
@@ -43,12 +51,12 @@ class MoviesVC: BaseVC {
 
 extension MoviesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieCell else {return UITableViewCell()}
-        cell.setupView()
+        cell.setupView(movie: movies[indexPath.row])
         return cell
     }
     
@@ -60,27 +68,28 @@ extension MoviesVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MoviesVC: MoviesView {
-    func onGetMovies() {
-        
+    func onGetMovies(movies: [MoviesOutput]) {
+        self.movies = movies
+        tableView.reloadData()
     }
     
     func onMoviesEmpty() {
-        
+        tableView.reloadData()
     }
     
     func onPopularSelected() {
-        
+        presenter.onGetMoview(withCategory: .popular, onPage: 1)
     }
     
     func onUpcomingSelected() {
-        
+        presenter.onGetMoview(withCategory: .upcoming, onPage: 1)
     }
     
     func onTopRatedSelected() {
-        
+        presenter.onGetMoview(withCategory: .topRated, onPage: 1)
     }
     
     func onNowPlayingSelected() {
-        
+        presenter.onGetMoview(withCategory: .nowPlaying, onPage: 1)
     }
 }

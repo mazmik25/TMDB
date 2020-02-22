@@ -9,7 +9,6 @@
 import UIKit
 
 protocol MoviesView: BaseView {
-    func onGetMovies()
+    func onGetMovies(movies: [MoviesOutput])
     func onMoviesEmpty()
-    
 }

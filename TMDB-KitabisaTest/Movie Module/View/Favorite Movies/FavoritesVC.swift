@@ -38,7 +38,7 @@ extension FavoritesVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieCell else{return UITableViewCell()}
-        cell.setupView()
+//        cell.setupView()
         return cell
     }
     

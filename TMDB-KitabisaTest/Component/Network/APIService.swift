@@ -30,8 +30,13 @@ class APIService<T: Codable> {
             switch response.result {
             case .success(let model):
                 guard let responseJSON = model as? [String:Any] else {return}
-                self.generateSuccessResult(responseJSON: responseJSON, onCompleted: onCompleted)
-                print("HEADERS \(response.response?.allHeaderFields ?? [:])")
+                do {
+                    let data: Data = try JSONSerialization.data(withJSONObject: responseJSON, options: .prettyPrinted)
+                    let decoder: JSONDecoder = JSONDecoder()
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                    let model: T = try decoder.decode(T.self, from: data)
+                    onCompleted?(.success(model))
+                } catch let error { onCompleted?(.failure(error))  }
                 #if DEBUG
                     ApiLogger.logger(url: url, api: self.api, responseJSON: responseJSON)
                 #endif
@@ -45,47 +50,9 @@ class APIService<T: Codable> {
             }
         }
     }
-    
-    private func generateSuccessResult(responseJSON: [String:Any], onCompleted: OnSuccessResult<T>) {
-        if let code = responseJSON["status_code"] as? Int {
-            if code == 200 || code == 201 {
-                onCompleted?(
-                    handleDecoderModel(responseJSON: responseJSON, code: code)
-                )
-            } else {
-                onCompleted?(
-                    createErrorParsing(responseJSON: responseJSON, code: code)
-                )
-            }
-        } else {
-            onCompleted?(.failure(NSError(domain: "Failed to parse data", code: 523, userInfo: nil)))
-        }
-    }
-    
-    private func handleDecoderModel(responseJSON: [String:Any], code: Int) -> Result<T, Error> {
-        do {
-            var data: Data = Data()
-            if let responseData = responseJSON["data"] as? [String:Any] {
-                data = try JSONSerialization.data(withJSONObject: responseData, options: .prettyPrinted)
-            } else if let responsesData = responseJSON["data"] as? [[String:Any]] {
-                data = try JSONSerialization.data(withJSONObject: responsesData, options: .prettyPrinted)
-            } else { return .failure(NSError(domain: "Failed to parse data", code: code, userInfo: nil)) }
-            let decoder: JSONDecoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let model: T = try decoder.decode(T.self, from: data)
-            return .success(model)
-        } catch let error { return .failure(error) }
-    }
-    
-    private func createErrorParsing(responseJSON: [String:Any], code: Int) -> Result<T, Error> {
-        var error: Error
-        if let message = responseJSON["message"] as? String { error = NSError(domain: message, code: code, userInfo: nil) }
-        else { error = NSError(domain: "Failed to parse data", code: code, userInfo: nil) }
-        return .failure(error)
-    }
 }
 
-class ApiLogger {
+final class ApiLogger {
     static func logger(url: String, api: APIBlueprint, responseJSON: [String:Any]?) {
         print("URL \(url)")
         print("METHOD \(api.httpMethod.rawValue)")
