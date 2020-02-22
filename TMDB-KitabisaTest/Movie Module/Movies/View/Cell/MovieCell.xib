@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="214" id="KGk-i7-Jjw" customClass="MovieCell" customModule="TMDB_Kitabisa" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="450" height="214"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="450" height="214"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QiS-S3-qVP" customClass="ShadowView" customModule="TMDB_Kitabisa" customModuleProvider="target">
+                        <rect key="frame" x="8" y="8" width="434" height="176"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bu7-rj-ggm">
+                                <rect key="frame" x="8" y="8" width="120" height="160"/>
+                                <color key="backgroundColor" red="0.81568627449999997" green="0.2901960784" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="6Xl-lf-WYm"/>
+                                    <constraint firstAttribute="height" constant="160" id="Rec-ZG-cIa"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jumanji (2019)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="osx-yL-Kpe">
+                                <rect key="frame" x="144" y="16" width="274" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="June 28th, 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qjk-Xk-qRq">
+                                <rect key="frame" x="144" y="45" width="274" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubh-Jw-RIQ">
+                                <rect key="frame" x="144" y="70" width="274" height="57.5"/>
+                                <string key="text">Based on the global blockbuster videogame franchise from Sega, Sonic the Hedgehog tells the story of the world’s speediest hedgehog as he embraces his new home on Earth. In this live-action adventure comedy, Sonic and his new best friend team up to defend the planet from the evil genius Dr. Robotnik and his plans for world domination.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ubh-Jw-RIQ" firstAttribute="trailing" secondItem="osx-yL-Kpe" secondAttribute="trailing" id="39m-0O-pR5"/>
+                            <constraint firstAttribute="trailing" secondItem="osx-yL-Kpe" secondAttribute="trailing" constant="16" id="CVg-Iq-T1a"/>
+                            <constraint firstItem="Qjk-Xk-qRq" firstAttribute="top" secondItem="osx-yL-Kpe" secondAttribute="bottom" constant="8" id="Jee-8l-s3p"/>
+                            <constraint firstItem="Qjk-Xk-qRq" firstAttribute="leading" secondItem="osx-yL-Kpe" secondAttribute="leading" id="O5c-0g-nEk"/>
+                            <constraint firstAttribute="bottom" secondItem="bu7-rj-ggm" secondAttribute="bottom" constant="8" id="SVV-jr-MGQ"/>
+                            <constraint firstItem="osx-yL-Kpe" firstAttribute="top" secondItem="bu7-rj-ggm" secondAttribute="top" constant="8" id="SuS-x9-wTE"/>
+                            <constraint firstItem="bu7-rj-ggm" firstAttribute="top" secondItem="QiS-S3-qVP" secondAttribute="top" constant="8" id="aru-ut-69l"/>
+                            <constraint firstItem="Qjk-Xk-qRq" firstAttribute="trailing" secondItem="osx-yL-Kpe" secondAttribute="trailing" id="elK-Mr-9Ph"/>
+                            <constraint firstItem="osx-yL-Kpe" firstAttribute="leading" secondItem="bu7-rj-ggm" secondAttribute="trailing" constant="16" id="j3Q-Hx-CfQ"/>
+                            <constraint firstItem="ubh-Jw-RIQ" firstAttribute="top" secondItem="Qjk-Xk-qRq" secondAttribute="bottom" constant="8" id="jrs-Si-tsd"/>
+                            <constraint firstItem="bu7-rj-ggm" firstAttribute="leading" secondItem="QiS-S3-qVP" secondAttribute="leading" constant="8" id="nP3-TB-PEJ"/>
+                            <constraint firstItem="ubh-Jw-RIQ" firstAttribute="leading" secondItem="osx-yL-Kpe" secondAttribute="leading" id="woZ-sY-obW"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="QiS-S3-qVP" secondAttribute="bottom" constant="8" id="6dx-53-Jh5"/>
+                    <constraint firstItem="QiS-S3-qVP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="A4m-TL-Wuk"/>
+                    <constraint firstItem="QiS-S3-qVP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="rV0-w1-ZVM"/>
+                    <constraint firstAttribute="trailing" secondItem="QiS-S3-qVP" secondAttribute="trailing" constant="8" id="rs6-3V-c2A"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="containerView" destination="QiS-S3-qVP" id="3Qe-qY-P7V"/>
+                <outlet property="posterImageView" destination="bu7-rj-ggm" id="lxp-FF-OT4"/>
+                <outlet property="releaseDateLabel" destination="Qjk-Xk-qRq" id="6Ha-EU-iVn"/>
+                <outlet property="synopsyisLabel" destination="ubh-Jw-RIQ" id="W6a-1U-0Pd"/>
+                <outlet property="titleLabel" destination="osx-yL-Kpe" id="gwz-gE-XVV"/>
+            </connections>
+            <point key="canvasLocation" x="237.68115942028987" y="352.90178571428572"/>
+        </tableViewCell>
+    </objects>
+</document>

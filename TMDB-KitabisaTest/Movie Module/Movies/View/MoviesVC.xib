@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MoviesVC" customModule="TMDB_KitabisaTest" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="Td7-s6-JQ0" id="XiB-X3-xYs"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Td7-s6-JQ0">
+                    <rect key="frame" x="0.0" y="44" width="414" height="770"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUA-B7-dcH">
+                    <rect key="frame" x="0.0" y="814" width="414" height="48"/>
+                    <color key="backgroundColor" red="0.25882352939999997" green="0.59999999999999998" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="dTB-PT-E0T"/>
+                    </constraints>
+                    <state key="normal" title="Category">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="onCategoryTapped:" destination="-1" eventType="touchUpInside" id="43N-qF-LjK"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="AUA-B7-dcH" firstAttribute="top" secondItem="Td7-s6-JQ0" secondAttribute="bottom" id="0ZL-ef-iPo"/>
+                <constraint firstItem="AUA-B7-dcH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="CZP-Ks-VkK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Td7-s6-JQ0" secondAttribute="trailing" id="Mw4-Td-c33"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="AUA-B7-dcH" secondAttribute="bottom" id="UVW-pj-TxY"/>
+                <constraint firstItem="Td7-s6-JQ0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="UVZ-wb-3yc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AUA-B7-dcH" secondAttribute="trailing" id="nya-eF-hVE"/>
+                <constraint firstItem="Td7-s6-JQ0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pZV-bV-niD"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="144.64285714285714"/>
+        </view>
+    </objects>
+</document>
