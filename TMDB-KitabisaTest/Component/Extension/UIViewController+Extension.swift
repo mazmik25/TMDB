@@ -62,4 +62,20 @@ extension UIViewController {
             present(vc, animated: true, completion: completion)
         }
     }
+    
+    func setupTitle(title: String?) {
+        if let nav = navigationController {
+            nav.navigationBar.barTintColor = .systemBlue
+            nav.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+            self.title = title
+        } 
+    }
+    
+    func setupBackNavigation() {
+        if let nav = navigationController {
+            let backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
+            backBarButtonItem.tintColor = .white
+            nav.navigationBar.topItem?.backBarButtonItem = backBarButtonItem
+        }
+    }
 }

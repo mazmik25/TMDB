@@ -38,7 +38,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jumanji (2019)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRo-O7-MYh">
-                        <rect key="frame" x="152" y="24" width="230" height="20.5"/>
+                        <rect key="frame" x="152" y="24" width="254" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -50,10 +50,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EeN-co-xoY">
-                        <rect key="frame" x="398" y="8" width="48" height="48"/>
+                        <rect key="frame" x="422" y="8" width="24" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="48" id="Few-5D-s2V"/>
-                            <constraint firstAttribute="width" constant="48" id="Twd-fe-5ia"/>
+                            <constraint firstAttribute="height" constant="24" id="Few-5D-s2V"/>
+                            <constraint firstAttribute="width" constant="24" id="Twd-fe-5ia"/>
                         </constraints>
                         <state key="normal" image="heart-empty"/>
                         <connections>

@@ -22,7 +22,20 @@ class MoviesVC: BaseVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        title = Bundle.main.infoDictionary?["CFBundleName"] as? String
+        setupTitle(title: Bundle.main.infoDictionary?["CFBundleName"] as? String)
+        setupFavoriteButton()
+    }
+    
+    private func setupFavoriteButton() {
+        let image = UIImage(named: "heart")
+        let favoriteButtonItem: UIBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(moveToFavorite))
+        favoriteButtonItem.tintColor = .white
+        navigationItem.rightBarButtonItem = favoriteButtonItem
+    }
+    
+    @objc private func moveToFavorite() {
+        let vc = FavoritesVC()
+        pushVC(vc)
     }
     
     private func setupTableView() {
@@ -62,7 +75,8 @@ extension MoviesVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let vc = FavoritesVC()
+        let vc = MovieDetailVC()
+        vc.movie = movies[indexPath.row]
         pushVC(vc)
     }
 }

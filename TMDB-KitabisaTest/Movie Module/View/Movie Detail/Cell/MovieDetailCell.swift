@@ -33,9 +33,17 @@ class MovieDetailCell: UITableViewCell {
 
     }
     
-    func setupView(delegate: MovieDetailCellDelegate, index: Int) {
+    func setupView(delegate: MovieDetailCellDelegate, index: Int, movie: MoviesOutput) {
         self.delegate = delegate
         self.index = index
+        attachModel(movie: movie)
+    }
+    
+    private func attachModel(movie: MoviesOutput) {
+        posterImageView.loadPoster(path: movie.posterPath)
+        titleLabel.text = movie.title
+        releaseDateLabel.text = movie.releaseDate
+        synopsyisLabel.text = movie.overview
     }
     
     @IBAction func onFavoriteTapped(_ sender: UIButton) {

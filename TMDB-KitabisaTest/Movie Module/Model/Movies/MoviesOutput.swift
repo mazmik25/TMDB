@@ -8,6 +8,7 @@
 
 import Foundation
 struct MoviesOutput: Codable {
+    let id: Int
     let overview : String
     let posterPath : String
     let releaseDate : String

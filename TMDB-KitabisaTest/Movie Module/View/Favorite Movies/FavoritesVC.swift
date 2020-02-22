@@ -19,7 +19,8 @@ class FavoritesVC: BaseVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        title = "Favorite Movie"
+        setupTitle(title: "Favorite Movie")
+        setupBackNavigation()
     }
     
     private func setupTableView() {
