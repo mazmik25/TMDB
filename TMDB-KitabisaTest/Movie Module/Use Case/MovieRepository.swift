@@ -34,9 +34,11 @@ final class MovieRepository {
     private func swapToOutput(from model: GetMoviesBodyResponse) -> [MoviesOutput] {
         var outputs: [MoviesOutput] = []
         model.results.forEach { (response) in
-            let releaseDate: String = response.releaseDate.reformatString(from: .dateWithStripReversed, to: .monthFullName)
-            let output: MoviesOutput = MoviesOutput(id: response.id, overview: response.overview, posterPath: response.posterPath, releaseDate: releaseDate, title: response.title)
-            outputs.append(output)
+            if let date = response.releaseDate {
+                let releaseDate: String = date.reformatString(from: .dateWithStripReversed, to: .monthFullName)
+                let output: MoviesOutput = MoviesOutput(id: response.id ?? 0, overview: response.overview ?? "", posterPath: response.posterPath ?? "", releaseDate: releaseDate, title: response.title ?? "")
+                outputs.append(output)
+            }
         }
         return outputs
     }

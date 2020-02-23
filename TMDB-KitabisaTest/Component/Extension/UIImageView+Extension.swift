@@ -17,7 +17,7 @@ extension UIImageView {
             case .success(let image):
                 self.image = image
             case .failure(_):
-                self.backgroundColor = .gray
+                self.image = UIImage(named: "image-placeholder")
             }
         }
     }
