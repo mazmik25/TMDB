@@ -19,9 +19,8 @@
                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QiS-S3-qVP" customClass="ShadowView" customModule="TMDB_Kitabisa" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="434" height="176"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bu7-rj-ggm">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bu7-rj-ggm">
                                 <rect key="frame" x="8" y="8" width="120" height="160"/>
-                                <color key="backgroundColor" red="0.81568627449999997" green="0.2901960784" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="6Xl-lf-WYm"/>
                                     <constraint firstAttribute="height" constant="160" id="Rec-ZG-cIa"/>

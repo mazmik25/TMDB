@@ -28,10 +28,15 @@ class MovieCell: UITableViewCell {
     }
     
     func setupView(movie: MoviesOutput) {
+        posterImageView.setupRadius(type: .custom(4.0), isMaskToBounds: true)
         posterImageView.loadPoster(path: movie.posterPath)
         titleLabel.text = movie.title
         releaseDateLabel.text = movie.releaseDate
         synopsyisLabel.text = movie.overview
     }
     
+    func attachModel(movie: MovieDetail) {
+        let output: MoviesOutput = MoviesOutput(id: movie.id, overview: movie.overview, posterPath: movie.posterPath, releaseDate: movie.releaseDate, title: movie.title)
+        setupView(movie: output)
+    }
 }
